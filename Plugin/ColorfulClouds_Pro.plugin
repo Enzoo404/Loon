@@ -19,7 +19,7 @@ request if ${url} ~= /^https?:\/\/biz\.cyapi\.cn\/p\/v1\/(entries|trial_card\/in
 
 [Script]
 # 精准匹配需净化的业务与会员接口，避免全量拦截气象数据造成性能损耗
-http-response ^https?:\/\/(biz|wrapper|starplucker)\.cyapi\.cn\/(api\/v1\/(certificates|user_detail)|p\/v1\/(user_info|vip_info)|v1\/activity|v2\.\d+\/[^/]+\/[^/]+\/(weather|hourly|realtime)|v3\/(config\/(cypage|membership)|operation\/(features|homefeatures|feeds|banners)|notification\/message_center)) script-path=https://raw.githubusercontent.com/Enzoo404/Loon/main/Script/caiyun_pro_purify.js, requires-body=true, timeout=10, tag=彩云天气净化
+http-response ^https?:\/\/(biz|wrapper|starplucker)\.cyapi\.cn\/(api\/v1\/(certificates|user_detail)|p\/v1\/(user_info|vip_info)|v1\/activity|v2\.\d+\/[^/]+\/[^/]+\/(weather|hourly|realtime)|v3\/(config\/(cypage|membership)|operation\/(features|homefeatures|feeds|banners)|notification\/message_center)) script-path=https://raw.githubusercontent.com/Enzoo404/Loon/main/Script/caiyun_pro_purify.js, requires-body=true, timeout=10, tag=彩云天气 Pro
 
 [Mitm]
 hostname = biz.cyapi.cn, wrapper.cyapi.cn, starplucker.cyapi.cn
