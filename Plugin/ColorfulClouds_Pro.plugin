@@ -1,9 +1,9 @@
 #!name = 彩云天气 Pro
-#!desc = 去广告、精简页面模块并解锁 SVIP 会员权限 (到期时间 2099.09.09)
+#!desc = 去广告、精简页面并解锁Svip会员权限（应用版本低于7.20.2）
 #!author = Antigravity
 #!tag = 去广告, 会员解锁
 #!system = iOS, iPadOS
-#!loon_version = 3.5.3
+#!loon_version = 3.5.1
 #!type = normal
 #!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/ColorfulClouds.png
 

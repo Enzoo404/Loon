@@ -1,5 +1,5 @@
 /**
- * 彩云天气 Pro 净化与 SVIP 解锁脚本 (Loon 3.5.3+)
+ * 彩云天气Pro净化和Svip解锁脚本 (Loon 3.5.1+)
  */
 
 const url = $request.url;
