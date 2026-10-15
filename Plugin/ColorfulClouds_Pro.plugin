@@ -1,0 +1,25 @@
+#!name = 彩云天气 Pro
+#!desc = 去广告、精简页面模块并解锁 SVIP 会员权限 (到期时间 2099.09.09)
+#!author = Antigravity
+#!tag = 去广告, 会员解锁
+#!system = iOS, iPadOS
+#!loon_version = 3.5.3
+#!type = normal
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/ColorfulClouds.png
+
+[Rule]
+# 阻断广告联盟与日志上报
+DOMAIN, abyss.cyapi.cn, REJECT
+DOMAIN, ad.cyapi.cn, REJECT
+DOMAIN, al-log.caiyunapp.com, REJECT
+
+[Rewrite]
+# 拦截开屏广告、试用卡及亲友卡弹窗 (Loon 3.5.1+ 新版语法)
+request if ${url} ~= /^https?:\/\/biz\.cyapi\.cn\/p\/v1\/(entries|trial_card\/info|friend_cards)/ then reject_dict(200)
+
+[Script]
+# 精准匹配需净化的业务与会员接口，避免全量拦截气象数据造成性能损耗
+http-response ^https?:\/\/(biz|wrapper|starplucker)\.cyapi\.cn\/(api\/v1\/(certificates|user_detail)|p\/v1\/(user_info|vip_info)|v1\/activity|v2\.\d+\/[^/]+\/[^/]+\/(weather|hourly|realtime)|v3\/(config\/(cypage|membership)|operation\/(features|homefeatures|feeds|banners)|notification\/message_center)) script-path=https://raw.githubusercontent.com/Enzoo404/Loon/main/Script/caiyun_pro_purify.js, requires-body=true, timeout=10, tag=彩云天气净化
+
+[Mitm]
+hostname = biz.cyapi.cn, wrapper.cyapi.cn, starplucker.cyapi.cn
